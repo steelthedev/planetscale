@@ -1,0 +1,76 @@
+{% extends 'base.html '%}
+{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+<section class="addblog">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-8 text-center">
+                <h2>
+                    Edit Blog Post
+                </h2>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-8">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                       <div class="row justify-content-center">
+
+                            <div class="col-md-8 col-lg-8 mt-3">
+                                <div class="form-group">
+                                    <label for="title">Title</label>
+                                    <input type="text" class="form-control shadow-none" value="{{form.initial.title}}" required name="title">
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 col-lg-8 mt-3">
+                                <div class="form-group">
+                                    <label for="category">Category</label>
+                                    <select type="text" class="form-control shadow-none" required name="category">
+                                       <option >{{form.initial.category}}</option>
+                                        {% for c in category %}
+                                        <option value="{{c.name}}">{{c.name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 col-lg-8 mt-3">
+                                <div class="form-group">
+                                    <label for="image">Image</label>
+                                    <input type="file" class="form-control shadow-none" placeholder="{{form.initial.image}}" name="image" >
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 col-lg-8 mt-3">
+                                <div class="form-group">
+                                    <label for="text">Text</label>
+                                    <textarea name="post" id="" cols="30" class="form-control shadow-none" required rows="10">{{form.initial.post}}</textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 col-lg-8 mt-3">
+                                <button class="btn-outline-white c-btn " type="submit" >Make Changes</button>
+                            </div>
+
+                        </div>
+                    
+
+                    <!--    <div class="col-md-8 col-lg-8 mt-3">
+                            {{form|crispy}}
+                        </div>
+                    -->
+
+                        
+                    </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<section class="customers">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-12">
+                <h2>
+                    Customers
+                </h2>
+                <a href="{% url 'download_users' %}" type="button" class="btn btn-primary btn-md shadow-none mb-3" name="button">Download as CSV</a>
+                <a href="{% url 'add_customer' %}" type="button" class="btn btn-success btn-md shadow-none mb-3" name="button">Add customer</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <table class="table table-bordered p-sm-4">
+                        <thead>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Action
+                            </th>
+                        </thead>
+                        {% for c in customers %}
+                        <tr>
+
+                            <td>
+                                {{c.first_name}} {{c.last_name}}
+                            </td>
+                            <td>
+                                {{c.email}}
+                            </td>
+                            <td>
+                                <a href="{% url 'delete_customer' c.id %}" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+                </table>
+               
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% load static %}
+
+<section class="user-overview">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-4 col-md-6 text-center">
+              <div class="card-panel">
+                <div class="card-info p-3 mt-3 pt-5">
+                  <div class="card-heading">
+                    <h2>{{within_24_hours}}</h2>
+                  </div>
+                  <div class="card-words mt-5">
+                    <p>Customers in the past 24 hours</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 text-center">
+              <div class="card-panel">
+                <div class="card-info p-3 mt-3 pt-5">
+                  <h2>{{within_past_week}}</h2>
+                  <div class="card-words mt-5">
+                    <p>Customers in the past one week</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 text-center">
+              <div class="card-panel">
+                <div class="card-info p-3 mt-3 pt-5">
+                  <h2>{{total_customers}}</h2>
+                  <div class="card-words mt-5">
+                    <p>Total Customers</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 text-center">
+              <div class="card-panel">
+                <div class="card-info p-3 mt-3 pt-5">
+                  <h2>{{total_users}}</h2>
+                  <div class="card-words mt-5">
+                    <p>Total Users</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 text-center">
+              <div class="card-panel">
+                <div class="card-info p-3 mt-3 pt-5">
+                  <h2>{{super_users}}</h2>
+                  <div class="card-words mt-5">
+                    <p>Super Users</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 text-center">
+              <div class="card-panel">
+                <div class="card-info p-3 mt-3 pt-5">
+                  <h2>{{staff_users}}</h2>
+                  <div class="card-words mt-5">
+                    <p>Staff Users</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

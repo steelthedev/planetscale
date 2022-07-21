@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>ingenious</title>
+
+
+    <link href="{% static 'css/vendor/bootstrap.min.css' %}" rel="stylesheet"/>
+   <link href="{% static 'css/admin.css' %}" rel="stylesheet">
+   <script src="https://use.fontawesome.com/48145d5cf6.js"></script>
+  </head>
+</html>
+<body>
+
+  <input type="checkbox" name="" id="sidebar-toggle">
+          <div class="sidebar">
+              <div class="sidebar-header">
+                  <h3 class="brand">
+                      <span class="fa fa-link"></span>
+                      <span>ingenious</span>
+                  </h3>
+                  <label for="sidebar-toggle" class="fa fa-bars" ></label>
+              </div>
+              <div class="sidebar-menu">
+                  <ul>
+                      <li>
+                          <a href="{% url 'index' %}">
+                              <span class="fa fa-home"></span>
+                              <span>Home</span>
+                          </a>
+                      </li>
+
+                      <li>
+                          <a href="{% url 'customers_list' %}">
+                              <span class="fa fa-user "></span>
+                              <span> Customers </span>
+                          </a>
+                      </li>
+
+                      <li>
+                          <a href="{% url 'send_email' %}">
+                              <span class="fa fa-envelope"></span>
+                              <span>Email</span>
+                          </a>
+                      </li>
+
+                      <li>
+                          <a href="{% url 'logout' %}">
+                              <span class="fa fa-arrow-right"></span>
+                              <span>Logout</span>
+                          </a>
+                      </li>
+
+                  </ul>
+
+      </div>
+              </div>
+
+   <div class="main-content">
+
+      <main>
+        {% if messages %}
+        {% for m in messages %}
+        <div class="alert alert-{{m.tags}}" role="alert">
+            <p>{{m.message}}</p>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        {% block content %}
+
+      
+
+        {% endblock %}
+
+    </main>
+
+    <footer id="#Hashnode">
+       <p>#Hashnode and #PlanetScaleHackon </p> 
+    </footer>
+
+
+
+  </body>
+</html>

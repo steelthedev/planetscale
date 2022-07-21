@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% load static %}
+
+<section class="add-user">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-12">
+                <h2>
+                    Add New Customer
+                </h2>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-12 col-lg-12">
+                <form action="{% url 'add_customer' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+
+                        <div class="col-lg-8 col-md-8 mt-2">
+                            <div class="form group">
+                                <label for="first name">First Name</label>
+                                <input type="text" class="form-control" required name="f_name">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-8 col-md-8 mt-3">
+                            <div class="form group">
+                                <label for="Last Name">Last Name</label>
+                                <input type="text" class="form-control" required name="l_name">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-8 col-md-8 mt-3">
+                            <div class="form group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" required name="email">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-8 col-md-8 mt-3">
+                            <button class="btn btn-outline-white btn-md btn-success" type="submit" name="submit">Add customer</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

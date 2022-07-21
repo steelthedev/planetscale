@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% load static %}
+
+<section class="add-user">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-12 col-lg-12">
+                <h2>
+                    Send Newsletter to customers
+                </h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <form action="{% url 'send_email' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 mt-3">
+                            <div class="form group">
+                                <label for="name">Subject</label>
+                                <input type="text"  class="form-control" required name="subject">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 mt-3">
+                            <div class="form group">
+                                <label for="name">Message</label>
+                                <textarea name="message" class="form-control" cols="20" rows="20"></textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-8 col-md-8 mt-3">
+                            <button class="btn btn-success btn-lg" type="submit" name="submit">Send email</button>
+                        </div>
+
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
